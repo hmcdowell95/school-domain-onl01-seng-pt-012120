@@ -18,14 +18,12 @@ class School
     end
   end
   
-  def grade(grade)
-    @grade = grade
-    return @roster[grade]
+  def grade(x)
+    return @roster[x]
   end
   def sort 
-    @roster.collect do |k, v|
-      v.sort
+    @roster.each do |k, v|
+      v.sort!
     end
-    return @roster.sort
   end
 end
