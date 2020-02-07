@@ -1,34 +1,31 @@
 
 
 class School 
-  attr_reader :school, :grade
+  attr_reader :school, :grade, :roster
   attr_accessor :student
-  ROSTER = {}
   
   def initialize(school)
     @school = school 
+    @roster = {}
   end
   
   def add_student(student, grade)
-    if ROSTER[grade]
-      ROSTER[grade] << student
+    if @roster[grade]
+      @roster[grade] << student
     else
-      ROSTER[grade] = []
-      ROSTER[grade] << student
+      @roster[grade] = []
+      @roster[grade] << student
     end
   end
   
-  def roster
-    ROSTER
-  end
   def grade=(grade)
     @grade = grade
-    return ROSTER[grade]
+    return @roster[grade]
   end
   def sort 
-    ROSTER.collect do |k, v|
+    @roster.collect do |k, v|
       v.sort
     end
-    return ROSTER.sort
+    return @roster.sort
   end
 end
